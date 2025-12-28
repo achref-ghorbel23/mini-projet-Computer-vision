@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato AI Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-tomato"></i> Tomato AI</h1>
+            <p>Détection intelligente de qualité</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="card input-section">
+                <h2>Analyser une image</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-target="upload-tab">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload
+                    </button>
+                    <button class="tab-btn" data-target="camera-tab">
+                        <i class="fa-solid fa-camera"></i> Caméra
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="upload-tab">
+                    <div class="upload-area" id="drop-zone">
+                        <i class="fa-solid fa-image"></i>
+                        <p>Glissez une image ou cliquez pour parcourir</p>
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="camera-tab">
+                    <div class="camera-container">
+                        <video id="video" autoplay playsinline></video>
+                        <button id="capture-btn" class="action-btn">
+                            <i class="fa-solid fa-camera-retro"></i> Prendre Photo
+                        </button>
+                    </div>
+                </div>
+
+                <button id="analyze-btn" class="primary-btn" disabled>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Analyser
+                </button>
+            </section>
+
+            <!-- Result Section -->
+            <section class="card result-section hidden" id="result-section">
+                <h2>Résultats</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card total">
+                        <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="info">
+                            <span class="label">Total</span>
+                            <span class="value" id="count-total">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card fresh">
+                        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+                        <div class="info">
+                            <span class="label">Fraîches</span>
+                            <span class="value" id="count-fresh">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card rotten">
+                        <div class="icon"><i class="fa-solid fa-bug"></i></div>
+                        <div class="info">
+                            <span class="label">Pourries</span>
+                            <span class="value" id="count-rotten">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-preview">
+                    <img id="result-image" src="" alt="Résultat de l'analyse">
+                    <div class="loader-overlay hidden" id="loader">
+                        <div class="spinner"></div>
+                        <p>Analyse en cours...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
