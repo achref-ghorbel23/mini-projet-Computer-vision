@@ -1,5 +1,5 @@
-train: c:\Users\ACHREFGHORBEL\Desktop\mon_projet_tomates\archive\train\images
-val: c:\Users\ACHREFGHORBEL\Desktop\mon_projet_tomates\archive\valid\images
+train: c:\Users\ACHREFGHORBEL\Desktop\mon_projet_tomates\entainmant_YOLO PERSONNALISÉ\train\images
+val: c:\Users\ACHREFGHORBEL\Desktop\mon_projet_tomates\entainmant_YOLO PERSONNALISÉ\valid\images
 
 nc: 6
 names: ['Large Ripe Tomato', 'Large Half-Ripe Tomato', 'Large Green Tomato', 'Small Ripe Tomato', 'Small Half-Ripe Tomato', 'Small Green Tomato']
