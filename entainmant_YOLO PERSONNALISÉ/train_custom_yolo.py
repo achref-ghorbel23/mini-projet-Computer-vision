@@ -11,7 +11,7 @@ model = YOLO('yolov8n.pt')
 print("🚀 Démarrage de l'entraînement...")
 
 results = model.train(
-    data='archive/data.yaml',
+    data='entainmant_YOLO PERSONNALISÉ/data.yaml',
     epochs=50,
     imgsz=640,
     batch=16,
@@ -20,3 +20,4 @@ results = model.train(
 
 print("✅ Entraînement terminé !")
 print(f"Le meilleur modèle est sauvegardé ici : {results.save_dir}/weights/best.pt")
+
