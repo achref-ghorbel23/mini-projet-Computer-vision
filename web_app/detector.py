@@ -32,23 +32,7 @@ except Exception as e:
     print(f"Error loading models: {e}")
     raise e
 
-def is_orange_color(image_crop):
-    """
-    Check if the dominant color of the crop is orange.
-    Returns True if orange, False otherwise.
-    """
-    hsv = cv2.cvtColor(image_crop, cv2.COLOR_BGR2HSV)
-    
-    # Orange range in HSV (approximate)
-    # Hue: 10-25 (OpenCV uses 0-179 for Hue)
-    lower_orange = np.array([10, 100, 100])
-    upper_orange = np.array([25, 255, 255])
-    
-    mask = cv2.inRange(hsv, lower_orange, upper_orange)
-    ratio = cv2.countNonZero(mask) / (image_crop.shape[0] * image_crop.shape[1])
-    
-    # If more than 30% of the object is orange, it's likely an orange
-    return ratio > 0.3
+
 
 def classify_tomato(image_crop):
     """
@@ -153,3 +137,4 @@ def process_image(image_path):
     )
 
     return image, tomato_count, fresh_count, rotten_count
+
