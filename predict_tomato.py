@@ -77,7 +77,7 @@ def resize_for_display(img, max_width=1000):
 # 5️⃣ Charger image
 # =========================
 
-image_path = "test1.jpg"
+image_path = "test2.png"
 image = cv2.imread(image_path)
 
 if image is None:
@@ -177,4 +177,5 @@ display_img = resize_for_display(image)
 cv2.imshow("Tomato Detection", display_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
 
